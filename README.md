@@ -1,1 +1,1 @@
-"# buzzguru-signature" 
+# buzzguru-signature
