@@ -93,7 +93,7 @@
           <table style="border-spacing: 0;">
             <tr>
               <% if (avatar) { %>
-                <td style="padding: 0; width: 64px;">
+                <td style="padding: 0; width: 64px; vertical-align: baseline;">
                   <img src="<%-avatar%>" alt="<%-name%>" width="51px" height="51px" style="border-radius: 26px;">
                 </td>
               <% } %>
@@ -106,32 +106,22 @@
                 <% } %>
                 <table style="border-spacing: 0;">
                   <tr>
-                    <% if (email) { %>
-                      <td style="padding: 0; font-size: 11px; font-weight: normal; font-stretch: normal; font-style: normal; line-height: 1.82; padding-right: 9px;">
-                        <a href="mailto:<%-email%>" style="text-decoration: none; color: #787782;"><%-email%></a>
-                      </td>
-                    <% } %>
-                    <% if (email && phone) { %>
-                      <td style="padding: 3px 9px 0 0;">
-                        <div style="border-left: 1px solid #e3e3e3; height: 12px;"></div>
-                      </td>
-                    <% } %>
-                    <% if (phone) { %>
-                      <td style="padding: 0; font-size: 11px; font-weight: normal; font-stretch: normal; font-style: normal; line-height: 1.82; color: #787782; padding-right: 9px;">
-                        <a href="tel:<%-phone%>" style="text-decoration: none; color: #787782;"><%-phone%></a>
-                      </td>
-                    <% } %>
-                    <% if ((email || phone) && socials && socials.length > 0) { %>
-                      <td style="padding: 3px 9px 0 0;">
-                        <div style="border-left: 1px solid #e3e3e3; height: 12px;"></div>
-                      </td>
-                    <% } %>
-                    <% if (socials && socials.length > 0) { %>
-                      <td style="padding: 2px 0 0; line-height: 8px; font-size: 11px; font-weight: normal; font-stretch: normal; font-style: normal; color: #787782;">
-                        <% for (let key = 0; key < socials.length; key++) { %>
-                          <a href="<%-socials[key].value%>" target="_blank" style="padding-right: 6px;text-decoration: none; display: inline-block;">
-                            <img src="<%-socials[key].icon%>" alt="<%-socials[key].title%>" />
-                          </a>
+                    <% if (email || phone) { %>
+                      <td style="padding: 0; font-size: 11px; font-weight: normal; font-stretch: normal; font-style: normal; line-height: 1.82;">
+                        <% if (email) { %>
+                          <a href="mailto:<%-email%>" style="text-decoration: none; color: #787782;display:block;"><%-email%></a>
+                        <% } %>
+                        <% if (email) { %>
+                          <a href="tel:<%-phone%>" style="text-decoration: none; color: #787782;display:block;"><%-phone%></a>
+                        <% } %>
+                        <% if (socials && socials.length > 0) { %>
+                          <div style="padding: 6px 0 0; line-height: 8px; font-size: 11px; font-weight: normal; font-stretch: normal; font-style: normal; color: #787782;">
+                            <% for (let key = 0; key < socials.length; key++) { %>
+                              <a href="<%-socials[key].value%>" target="_blank" style="padding-right: 6px;text-decoration: none; display: inline-block;">
+                                <img src="<%-socials[key].icon%>" alt="<%-socials[key].title%>" />
+                              </a>
+                            <% } %>
+                          </div>
                         <% } %>
                       </td>
                     <% } %>
