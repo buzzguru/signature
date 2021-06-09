@@ -53,16 +53,24 @@
         <input type="text" id="avatar" name="avatar">
       </p>
       <p>
-        <label for="telegram">Telegram</label>
-        <input type="text" id="telegram" name="telegram">
-      </p>
-      <p>
         <label for="facebook">Facebook</label>
         <input type="text" id="facebook" name="facebook">
       </p>
       <p>
         <label for="linkedIn">LinkedIn</label>
         <input type="text" id="linkedIn" name="linkedIn">
+      </p>
+      <p>
+        <label for="whatsapp">WhatsApp</label>
+        <input type="text" id="whatsapp" name="whatsapp">
+      </p>
+      <p>
+        <label for="telegram">Telegram</label>
+        <input type="text" id="telegram" name="telegram">
+      </p>
+      <p>
+        <label for="discord">Discord</label>
+        <input type="text" id="discord" name="discord">
       </p>
       <button type="submit">
         Сгенерировать
@@ -117,8 +125,8 @@
                         <% if (socials && socials.length > 0) { %>
                           <div style="padding: 6px 0 0; line-height: 8px; font-size: 11px; font-weight: normal; font-stretch: normal; font-style: normal; color: #787782;">
                             <% for (let key = 0; key < socials.length; key++) { %>
-                              <a href="<%-socials[key].value%>" target="_blank" style="padding-right: 6px;text-decoration: none; display: inline-block;">
-                                <img src="<%-socials[key].icon%>" alt="<%-socials[key].title%>" />
+                              <a href="<%-socials[key].value%>" target="_blank" style="padding-right: 6px;text-decoration: none; display: inline-block; width: 20px; height: 20px;">
+                                <img src="<%-socials[key].icon%>" alt="<%-socials[key].title%>" width="20px" height="20px" />
                               </a>
                             <% } %>
                           </div>
@@ -147,13 +155,17 @@
         telegram,
         facebook,
         linkedIn,
+        whatsapp,
+        discord,
         phone,
       } = form.elements;
 
       const icons = {
-        telegram: 'https://buzzguru.github.io/signature/static/telegram.png',
-        facebook: 'https://buzzguru.github.io/signature/static/facebook.png',
-        linkedIn: 'https://buzzguru.github.io/signature/static/linkedIn.png',
+        telegram: 'https://buzzguru.github.io/signature/static/telegram@2x.png',
+        facebook: 'https://buzzguru.github.io/signature/static/facebook@2x.png',
+        linkedIn: 'https://buzzguru.github.io/signature/static/linkedIn@2x.png',
+        whatsapp: 'https://buzzguru.github.io/signature/static/whatsapp@2x.png',
+        discord: 'https://buzzguru.github.io/signature/static/discord@2x.png',
       };
 
       const data = {
@@ -186,6 +198,22 @@
           title: 'Linked In',
           icon: icons.linkedIn,
           value: linkedIn.value,
+        });
+      }
+
+      if (whatsapp.value) {
+        data.socials.push({
+          title: 'WhatsApp',
+          icon: icons.whatsapp,
+          value: whatsapp.value,
+        });
+      }
+
+      if (discord.value) {
+        data.socials.push({
+          title: 'Discord',
+          icon: icons.discord,
+          value: discord.value,
         });
       }
 
